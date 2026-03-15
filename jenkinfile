@@ -3,19 +3,19 @@ pipeline {
 
     stages {
 
-        stage('Git Checkout') {
+        stage('Checkout Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/Arunasri-0096/restaurent.git'
             }
         }
 
-        stage('Build') {
+        stage('Build Maven Package') {
             steps {
                 sh 'mvn clean package'
             }
         }
 
-        stage('Docker Build') {
+        stage('Build Docker Image') {
             steps {
                 sh 'docker build -t restaurantimg .'
             }
