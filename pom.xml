@@ -3,33 +3,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-<groupId>com.devops</groupId>
-<artifactId>restaurant</artifactId>
-<version>1.0</version>
-<packaging>war</packaging>
+    <groupId>com.devops</groupId>
+    <artifactId>restaurant</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
 
-<build>
+    <build>
+        <finalName>restaurant</finalName>
 
-    <finalName>restaurant</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
 
-    <plugins>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
 
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.2</version>
+            </plugin>
+        </plugins>
 
-            <!-- Important -->
-            <configuration>
-                <failOnMissingWebXml>false</failOnMissingWebXml>
-            </configuration>
-
-        </plugin>
-
-    </plugins>
-
-</build>
+    </build>
 
 </project>
