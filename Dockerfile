@@ -1,14 +1,14 @@
-# Stage 1 : Build Stage
+# Stage 1: Build Stage
 FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
 WORKDIR /app
 
-COPY . .
+COPY . /app
 
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 
-# Stage 2 : Runtime Stage
+# Stage 2: Runtime Stage
 FROM tomcat:10.1-jdk17
 
 COPY --from=builder /app/target/restaurant.war /usr/local/tomcat/webapps/ROOT.war
@@ -16,4 +16,3 @@ COPY --from=builder /app/target/restaurant.war /usr/local/tomcat/webapps/ROOT.wa
 EXPOSE 8080
 
 CMD ["catalina.sh", "run"]
-~
