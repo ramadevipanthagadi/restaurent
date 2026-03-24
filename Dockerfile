@@ -13,6 +13,6 @@ FROM tomcat:10.1-jdk17
 
 COPY --from=builder /app/target/restaurant.war /usr/local/tomcat/webapps/ROOT.war
 
-EXPOSE 8080
+EXPOSE 8012
 
 CMD ["catalina.sh", "run"]
